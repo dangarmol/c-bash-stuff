@@ -1,0 +1,46 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1347\cocoasubrtf570
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+
+\f0\fs24 \cf0 llamadas ioctl para parar o rebobinar porque las comunes son open read write y close\
+\
+con import y outpport para poder escribir y leer en direcciones \
+hay diferencias entre hacer operaciones entre root y kernel, root sigue siendo un usuario con privilegios\
+\
+Se pasa a modo kernel cambiando bits a trav\'e9s de interrupciones , rutina de interrupciones\
+la zona donde est\'e1n los vectores de interrupci\'f3n est\'e1n restringidas a usuarios \
+el super usuario puede modificar el c\'f3digo del kernel\
+\
+no todas las arquitectura se comportan igual cuando les llega una interrupci\'f3n al sistema operativo, esa forma de actuar lo decide el procesador , su arquitectura y no el sistema operativo \
+\
+numero major para referenciar al dispositivo que estamos eligiendo mismo major, est\'e1n controlados por la misma secci\'f3n de c\'f3digo\
+menor \'97> tipo de dispositivo para acceder a las distintas particiones al minor \
+\
+con mknod podermos crear un nuevo fichero de dispositivo \
+#mknod /dev/<nombre> <tipo> <num_major> <num_minor>\
+\
+aunque el menor y el major sean iguales al ser dos dispositivos diferentes el so puede diferenciarlos \
+\
+m\'f3dulo kernel\'97> piezas de c\'f3digo que escribimos y compilamos y cargamos de forma dinamica en el kernel que puedo cargar y descargar para darle mas funcionalidad al kernel \
+\
+los s\'edmbolos del kernel podemos verlos con cat /proc/kallsym\
+no tenemos librerias, por ejemplo si queremos escribir en los ficheros de log podemos poner printk()\
+\
+sudo tail -f /var/log/messages para ver las ultimas lineas del log\
+\
+con try_module_get(THIS_MODULE) se protege contra si mismos para no colgar la maquina \
+	module_put(THIS_MODULE)\
+\
+sprintf en el puntero msg que dice, te he dicho x veces hello world\
+\
+put_user,(nos protegemos comprobando que tenemos permiso para escribir el kernel en ese espacio de memoria ) coge el buffer msg_ptr y lo guarda en buffer que es en ssize_t device_read \
+\
+\
+\
+\
+\
+\
+open de /dev/leds\
+write (\'931 2\'94)}

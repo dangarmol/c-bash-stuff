@@ -1,0 +1,9 @@
+usuarioso@debian:~/p3/schedsim$ ./schedsim -i examples/ejercicio7.txt
+
+Statistics: task_name=P1 real_time=13 user_time=2 io_time=5
+Statistics: task_name=P2 real_time=13 user_time=4 io_time=1
+Statistics: task_name=P4 real_time=13 user_time=4 io_time=3
+Statistics: task_name=P3 real_time=17 user_time=6 io_time=4
+Simulation completed
+Closing file descriptors...
+
